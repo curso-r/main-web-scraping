@@ -1,9 +1,0 @@
----
-title: Manipulação
----
-
-<a href = "../manip.zip"><button>Download</button></a>
-
-# Resumo
-
-# Referências
