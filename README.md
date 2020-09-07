@@ -10,11 +10,10 @@ Inscreva-se no curso: <https://www.curso-r.com/cursos/web-scraping>
 **Acesse o material completo do curso escolhendo uma das turmas
 abaixo**.
 
-| Turma         | Material                                                 | Github                                                    |
-| :------------ | :------------------------------------------------------- | :-------------------------------------------------------- |
-| Abril de 2020 | <https://curso-r.github.io/202004-web-scraping-2>        | <https://github.com/curso-r/202004-web-scraping-2>        |
-| Março de 2020 | <https://curso-r.github.io/202003-web-scraping-1>        | <https://github.com/curso-r/202003-web-scraping-1>        |
-| Abril de 2019 | <https://curso-r.github.io/201904-workshop-web-scraping> | <https://github.com/curso-r/201904-workshop-web-scraping> |
+| Turma         | Material                                          | Github                                             |
+| :------------ | :------------------------------------------------ | :------------------------------------------------- |
+| Abril de 2020 | <https://curso-r.github.io/202004-web-scraping-2> | <https://github.com/curso-r/202004-web-scraping-2> |
+| Março de 2020 | <https://curso-r.github.io/202003-web-scraping-1> | <https://github.com/curso-r/202003-web-scraping-1> |
 
 # Ementa
 
