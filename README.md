@@ -5,17 +5,16 @@
 
 Repositório principal do curso Web Scraping.
 
-Inscreva-se no curso:
-<a href="https://www.curso-r.com/cursos/web-scraping" class="uri">https://www.curso-r.com/cursos/web-scraping</a>
+Inscreva-se no curso: <https://www.curso-r.com/cursos/web-scraping>
 
 **Acesse o material completo do curso escolhendo uma das turmas
 abaixo**.
 
-| Turma            | Material                                                                                                                  | Github                                                                                                                      |
-|:-----------------|:--------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
-| novembro de 2020 | <a href="https://curso-r.github.io/202011-web-scraping" class="uri">https://curso-r.github.io/202011-web-scraping</a>     | <a href="https://github.com/curso-r/202011-web-scraping" class="uri">https://github.com/curso-r/202011-web-scraping</a>     |
-| abril de 2020    | <a href="https://curso-r.github.io/202004-web-scraping-2" class="uri">https://curso-r.github.io/202004-web-scraping-2</a> | <a href="https://github.com/curso-r/202004-web-scraping-2" class="uri">https://github.com/curso-r/202004-web-scraping-2</a> |
-| março de 2020    | <a href="https://curso-r.github.io/202003-web-scraping-1" class="uri">https://curso-r.github.io/202003-web-scraping-1</a> | <a href="https://github.com/curso-r/202003-web-scraping-1" class="uri">https://github.com/curso-r/202003-web-scraping-1</a> |
+| Turma            | Material                                        | Github                                           |
+|:-----------------|:------------------------------------------------|:-------------------------------------------------|
+| novembro de 2021 | <https://curso-r.github.io/202111-web-scraping> | <https://github.com/curso-r/202111-web-scraping> |
+| junho de 2021    | <https://curso-r.github.io/202106-web-scraping> | <https://github.com/curso-r/202106-web-scraping> |
+| novembro de 2020 | <https://curso-r.github.io/202011-web-scraping> | <https://github.com/curso-r/202011-web-scraping> |
 
 # Ementa
 

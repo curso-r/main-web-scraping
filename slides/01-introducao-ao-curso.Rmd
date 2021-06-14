@@ -13,8 +13,8 @@ output:
 knit: pagedown::chrome_print      
 ---
 
-```{r, child="00-preamble.Rmd"}
-
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
 ```
 
 class: middle, center
@@ -23,121 +23,54 @@ class: middle, center
 
 ---
 
-class: middle, center
+## Nossos cursos
 
-## A empresa
-
-.pull-left[
 ```{r, echo = FALSE}
-knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/295643c6243701ae6a9bac3fb8ad467ff0ce3c84/d1785/img/logo/cursor1-41.png")
+templatesR6::criar_slide_nossos_cursos()
 ```
 
-<br>
-<br>
+---
 
+## Além da Curso-R
+
+.pull-left[
 ```{r, echo = FALSE}
 knitr::include_graphics("img/logo_r6.png")
 ```
 
+<center style = "font-family: Noto Sans KR, sans-serif; color: #f26b61; font-weight: bold;">
+Projetos de análise estatística
+<br><br>
+Modelagem preditiva
+<br><br>
+Aplicativos e dashboards em Shiny
+<br><br>
+Web scraping
+<br><br>
+Treinamentos in-company
+</center>
+
 ]
 
+--
+
 .pull-right[
+
+<center>
+```{r, echo = FALSE}
+shiny::tags$a(
+  href = "https://www.curso-r.com/produtos/",
+  "Contribuímos ativamente com a comunidade!"
+)
+```
+</center>
+
 ```{r, echo = FALSE}
 knitr::include_graphics("img/produtos.png")
 ```
 ]
 
-### [www.curso-r.com](https://www.curso-r.com)
 
----
-
-## Ministrantes
-
-.pull-left[
-
-### Julio Trecenti
-
-```{r, echo=FALSE, out.width="30%"}
-knitr::include_graphics("img/jtrecenti.png")
-```
-
-
-Doutorando em Estatística pelo IME-USP. Secretário-geral da Associação Brasileira de Jurimetria (ABJ). Conselheiro do CONFE. Sócio da Terranova Consultoria. Trabalha com web scraping, arrumação de dados, construção de modelos preditivos, APIs, pacotes em R e dashboards em Shiny.
-
-]
-
-
-.pull-right[
-
-### Caio Lente
-
-```{r, echo=FALSE, out.width="30%"}
-knitr::include_graphics("img/clente.png")
-```
-
-
-Mestrando em Ciência da Computação no IME-USP e cientista de dados na Terranova Consultoria. Começou a se apaixonar pelo R em 2016 e agora não fala em outra coisa. Metido a designer, maníaco da organização e metade texano.
-
-]
-
----
-
-## Linha do tempo
-
-<center>
-<img src="img/linha_do_tempo.png" width = 45%></img>
-</center>
-
----
-
-## Nossos cursos
-
-.pull-left[
-<div class="container center">
-  <div class="card">
-    <h2>Programação em R</h2>
-    <hr style = "background-color: #3bb44a;"/>
-    <p><a href = "https://www.curso-r.com/cursos/r4ds-1/">R para Ciência de dados I</a></p>
-        <p><a href = "https://www.curso-r.com/cursos/r4ds-2/">R para Ciência de dados II</a></p>
-        <p><a href = "https://www.curso-r.com/cursos/rcpp/">Introdução ao R com C++</a></p>
-  </div>
-</div>
-
-<br>
-
-<div class="container center">
-  <div class="card">
-    <h2>Modelagem</h2>
-    <hr style = "background-color: #996699;"/>
-    <p><a href = "https://www.curso-r.com/cursos/regressao-linear/">Regressão Linear</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/intro-machine-learning/">Machine Learning</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/xgboost/">XGBoost</a></p>
-    <p><a href = "https://www.curso-r.com/cursos/deep-learning/">Deep Learning</a></p>
-  </div>
-</div>
-]
-
-
-.pull-right[
-<div class="container center">
-  <div class="card">
-    <h2>Extração de dados</h2>
-    <hr style = "background-color: #eeba30;"/>
-    <p><a href = "https://www.curso-r.com/cursos/web-scraping/">Web scraping</a></p>
-  </div>
-</div>
-
-<br>
-
-<div class="container center">
-  <div class="card">
-    <h2>Comunicação e automação</h2>
-    <hr style = "background-color: #ff6699;"/>
-    <p><a href = "https://www.curso-r.com/cursos/dashboards/">Dashboards com R</a></p>
-        <p><a href = "https://www.curso-r.com/cursos/deploy/">Deploy</a></p>
-  </div>
-</div>
-]
 
 ---
 class: middle, center
@@ -184,30 +117,33 @@ class: middle, center
 
 ---
 
-# Resultados
+## Dinâmica do curso
 
-No final, você terá dados suficientes para montar um dashboard como esse!
+- As aulas terão uma seção teórica, de exposição de conceitos, e prática, de aplicação de conceitos.
 
-```{r, echo=FALSE}
-knitr::include_graphics("img/dash.jpg")
-```
+- Teremos diversos exercícios para serem feitos "em casa".
 
----
+- O objetivo dos exercícios é gerar dúvidas. **Com exceção da entrega final, nenhum exercício precisará ser entregue**.
 
-# Dinâmica
+- O certificado será emitido mediante uma **entrega final**. O prazo da entrega final será de pelo menos 2 semanas após a última aula.
 
-- Pelo menos um exemplo prático por aula
-    - Foco: APIs públicas, sites públicos
-
-- Exercícios para casa, com entrega facultativa
-
-- Trabalho final, com entrega obrigatória
-    - As pessoas que fizerem os melhores trabalhos receberão uma bolsa para fazer qualquer curso da Curso-R
-    - Mais detalhes sobre o trabalho final nas próximas aulas
+- Haverá monitoria para esclarecimento de dúvidas sempre 30 minutos antes do início das aulas.
 
 ---
 
-# Tirando dúvidas
+## Dinâmica das aulas
+
+- Mande dúvidas e comentários no chat em qualquer momento.
+
+- Para falar, levante a mão.
+
+- Algumas dúvidas serão respondidas na hora. Outras serão respondidas mais tarde na própria aula ou em aulas futuras.
+
+- Só interrompa quem estiver falando em caso de emergência.
+
+---
+
+## Tirando dúvidas
 
 - **Não existe dúvida idiota**.
  
@@ -215,19 +151,31 @@ knitr::include_graphics("img/dash.jpg")
  
 - Fora do horário de aula ou monitoria:
   - perguntas gerais sobre o curso deverão ser feitas no Classroom.
-  - perguntas sobre R, principalmente as que envolverem código, deverão ser enviadas no [nosso discourse](https://discourse.curso-r.com/). Se envolver web scraping, é importante especificar a página que está querendo acessar e como você faria para encontrá-la manualmente.
-
+  - perguntas sobre R ou Shiny, principalmente as que envolverem código, deverão ser enviadas no [nosso discourse](https://discourse.curso-r.com/).
+     
 - [Veja aqui dicas de como fazer uma boa pergunta](https://discourse.curso-r.com/t/como-escrever-uma-boa-pergunta/542).
 
 ---
-# Por que usar o discourse?
 
-- Muito melhor para escrever textos que possuem códigos. Com ele, podemos usar o pacote `{reprex}`!
+## Pratique
 
-- Saber pesquisar sobre erros e fazer a pergunta certa é essencial para aprender e resolver problemas de programação.
+- Não se preocupe com estilos de estudo. Use o que te deixar mais confortável.
 
-- No discourse, teremos mais pessoas acompanhando e respondendo as dúvidas.
+- Estude um pouco todo dia. Se você tem apenas uma hora para estudar na semana, faça 3 sessões de 20 minutos em dias diferentes.
 
-- Em um ambiente aberto, as suas dúvidas vão contribuir com a comunidade.
+- Se teste! Coloque em prática o que você aprendeu resolvendo exercícios ou inserindo o R no seu dia-a-dia.
 
-### https://discourse.curso-r.com/
+<br>
+<br>
+
+### Referência
+
+[Nahurhodo 205 - Powerpoint é útil para a aprendizagem?](https://www.b9.com.br/shows/naruhodo/naruhodo-205-powerpoint-e-util-para-a-aprendizagem/)
+
+---
+
+## Extras
+
+- As __duas entregas__ finais mais legais ganharão uma vaga em qualquer curso da Curso-R.
+
+- A gravação das aulas ficará disponível no Google Classroom por 1 ano após o final do curso.
