@@ -1,7 +1,9 @@
 # 1. Crie uma função tjsp_baixar_pag() que baixa a página
 ## Dica: usar httr::write_disk()
 
-# 2. Baixe todos os resultados
+# 2. Baixe as primeiras 10 páginas de resultados, 
+# a partir de um termo de busca à sua escolha.
+# Por exemplo: briga de condomínio
 
 # 3. Crie uma funcao ler_item que lê cada item da tabela, como fizemos
 
