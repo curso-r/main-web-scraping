@@ -1,3 +1,7 @@
-# Faça um script para baixar a base de dados usando webdriver
+# 1. Faça um script que seja capaz de baixar a base de dados utilizada pelo
+# pesqEle. Ela pode ser acessada pelo botão "Download" na direita superior do
+# app.
 
-# Verifique quais informações são possíveis de extrair sem webdriver
+# 2. [Dissertativa] Verifique quais informações podem ser extraídas **sem**
+# webdriver. Use o resto do conhecimento obtido ao longo do curso para explorar
+# o aplicativo.
