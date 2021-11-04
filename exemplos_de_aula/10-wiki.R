@@ -32,9 +32,9 @@ head(urls)
 
 # salvar os arquivos com `GET(..., write_disk(path))`
 
-dir.create("out")
+dir.create("output")
 
-paths <- paste0("out/", seq_along(urls), ".html")
+paths <- paste0("output/", seq_along(urls), ".html")
 
 maybe_get <- function(url, path) {
   possibly(GET, NULL)(url, write_disk(path))
