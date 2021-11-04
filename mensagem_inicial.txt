@@ -2,7 +2,7 @@ Olá!
 
 Nosso curso de Web Scraping está chegando.
 
-As aulas acontecerão entre 21 de junho e 08 de junho (06 culas), às segundas e quintas, das 19h00 às 22h00, no formato online.
+As aulas acontecerão entre 04/11 e 25/11 (06 aulas), às segundas e quintas, das 19h00 às 22h00, no formato online. Não teremos aula no dia 15/11 por conta do feriado.
 
 Você precisará de um computador com acesso à internet. Se ainda não tiver o R e o RStudio instalados, veja este tutorial de como instalar.
 
@@ -25,7 +25,7 @@ Daremos instruções mais detalhadas durante o curso para que a experiência no 
 
 Os materiais serão disponibilizados no dia da primeira aula. Vamos dedicar a primeira aula para que o ambiente fique confortável.
 
-Serão 18 horas, então prepare-se! Faça um esforço para:
+Serão 18 horas de curso, então prepare-se! Faça um esforço para:
 
 - Ter sempre uma garrafinha de água.
 - Pegar alguns snacks. Teremos intervalos durante as aulas, mas mesmo assim tomem cuidado.
