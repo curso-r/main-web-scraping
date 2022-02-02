@@ -5,23 +5,26 @@ author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5
 date: ""
 output:
   xaringan::moon_reader:
-    css: ["default", "default-fonts", "css/custom-intro.css"]
+    css: ["default", "default-fonts", "css/xaringan-themer.css"]
     lib_dir: libs
     nature:
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
-knit: pagedown::chrome_print            
+knit: pagedown::chrome_print
 ---
 
-
-```{r, child="00-preamble.Rmd"}
-
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  fig.align = "center",
+  echo = FALSE
+)
 ```
+
 
 class: middle, center
 
-# `r blue("Introdução")`
+# Introdução
 
 ---
 # O que é web scraping?
@@ -39,10 +42,9 @@ class: middle, center
 
 **Tudo o que você vê na internet pode se transformar dados para analisar!**
 
-```{r echo=FALSE, fig.align="center"}
+```{r}
 knitr::include_graphics("img/matrix.gif")
 ```
-
 
 ---
 
@@ -68,11 +70,20 @@ knitr::include_graphics("img/matrix.gif")
 
 - Vale à pena conversar com a entidade detentora dos dados.
 
-```{r echo=FALSE, fig.align="center"}
+```{r}
 knitr::include_graphics("img/spiderman.gif")
 ```
 
 ---
+
+# Fluxo do Web Scraping 
+
+```{r fluxo-ws}
+knitr::include_graphics("img/cycle.png")
+```
+
+---
+
 
 # Tipos de problemas
 
@@ -89,7 +100,7 @@ knitr::include_graphics("img/spiderman.gif")
 ---
 class: center, middle
 
-# `r blue("APIs")`
+# APIs
 
 ---
 
@@ -141,59 +152,59 @@ class: center, middle
 
 # Exemplo 01: Poke API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
-```{r, eval=FALSE}
-url_base <- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint <- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon <- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon) #<<
+```{r, echo=TRUE, eval=FALSE}
+url_base <- "https://brasilapi.com.br/api" 
+endpoint <- "/cep/v1/68980000"            
+u_brasilapi <- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
 
-    Response [https://pokeapi.co/api/v2/pokemon/ditto]
-      Date: 2020-11-09 16:55
-      Status: 200
-      Content-Type: application/json; charset=utf-8
-      Size: 20.5 kB
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
+        Status: 200
+        Content-Type: application/json; charset=utf-8
+        Size: 98 B
       
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
-```{r, eval=FALSE}
-url_base <- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint <- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon <- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+```{r, echo=TRUE, eval=FALSE}
+url_base <- "https://brasilapi.com.br/api"
+endpoint <- "/cep/v1/68980000"            
+u_brasilapi <- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
 
-    * Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    * Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
         Status: 200
         Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
+        Size: 98 B
 
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
-```{r, eval=FALSE}
-url_base <- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint <- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon <- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+```{r, echo=TRUE, eval=FALSE}
+url_base <- "https://brasilapi.com.br/api"
+endpoint <- "/cep/v1/68980000"            
+u_brasilapi <- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
-
-      Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
     *   Status: 200
         Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
-
+        Size: 98 B
+  
 ---
 
 # Possíveis status
@@ -212,27 +223,27 @@ httr::GET(u_pokemon)
 
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
-```{r, eval=FALSE}
-url_base <- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint <- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon <- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+```{r, echo=TRUE, eval=FALSE}
+url_base <- "https://brasilapi.com.br/api"
+endpoint <- "/cep/v1/68980000"            
+u_brasilapi <- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
-
-      Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
         Status: 200
     *   Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
+        Size: 98 B
 
 ---
 
 # Vamos ao R!
 
-```{r, echo=FALSE, fig.align="center"}
+```{r}
 knitr::include_graphics("img/cat.gif")
 ```

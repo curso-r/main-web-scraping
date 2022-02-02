@@ -4,14 +4,10 @@
     <title>Web Scraping</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.5/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
-    <script src="libs/clipboard-2.0.6/clipboard.min.js"></script>
-    <link href="libs/xaringanExtra-clipboard-0.2.3.9000/xaringanExtra-clipboard.css" rel="stylesheet" />
-    <script src="libs/xaringanExtra-clipboard-0.2.3.9000/xaringanExtra-clipboard.js"></script>
-    <script>window.xaringanExtraClipboard(null, {"button":"Copy Code","success":"Copied!","error":"Press Ctrl+C to Copy"})</script>
-    <link rel="stylesheet" href="css/custom-intro.css" type="text/css" />
+    <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -27,15 +23,9 @@ class: center, middle, inverse, title-slide
 
 
 
-
-
-
-
-
-
 class: middle, center
 
-# <span style="color:#6495ed; font-weight: bold;">Introdução</span>
+# Introdução
 
 ---
 # O que é web scraping?
@@ -54,7 +44,6 @@ class: middle, center
 **Tudo o que você vê na internet pode se transformar dados para analisar!**
 
 &lt;img src="img/matrix.gif" style="display: block; margin: auto;" /&gt;
-
 
 ---
 
@@ -84,6 +73,13 @@ class: middle, center
 
 ---
 
+# Fluxo do Web Scraping 
+
+&lt;img src="img/cycle.png" width="981" style="display: block; margin: auto;" /&gt;
+
+---
+
+
 # Tipos de problemas
 
 - **APIs disponíveis**: O site fornece uma forma estruturada e documentada para acessar as páginas (com ou sem necessidade de fazer login).
@@ -99,7 +95,7 @@ class: middle, center
 ---
 class: center, middle
 
-# <span style="color:#6495ed; font-weight: bold;">APIs</span>
+# APIs
 
 ---
 
@@ -151,62 +147,62 @@ class: center, middle
 
 # Exemplo 01: Poke API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
 
 ```r
-url_base &lt;- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint &lt;- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon &lt;- paste0(url_base, endpoint)      # cola os textos
-*httr::GET(u_pokemon)
+url_base &lt;- "https://brasilapi.com.br/api" 
+endpoint &lt;- "/cep/v1/68980000"            
+u_brasilapi &lt;- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
 
-    Response [https://pokeapi.co/api/v2/pokemon/ditto]
-      Date: 2020-11-09 16:55
-      Status: 200
-      Content-Type: application/json; charset=utf-8
-      Size: 20.5 kB
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
+        Status: 200
+        Content-Type: application/json; charset=utf-8
+        Size: 98 B
       
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
 
 ```r
-url_base &lt;- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint &lt;- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon &lt;- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+url_base &lt;- "https://brasilapi.com.br/api"
+endpoint &lt;- "/cep/v1/68980000"            
+u_brasilapi &lt;- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
 
-    * Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    * Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
         Status: 200
         Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
+        Size: 98 B
 
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
 
 ```r
-url_base &lt;- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint &lt;- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon &lt;- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+url_base &lt;- "https://brasilapi.com.br/api"
+endpoint &lt;- "/cep/v1/68980000"            
+u_brasilapi &lt;- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
-
-      Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
     *   Status: 200
         Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
-
+        Size: 98 B
+  
 ---
 
 # Possíveis status
@@ -225,23 +221,23 @@ httr::GET(u_pokemon)
 
 ---
 
-# Exemplo 01: Poke API
+# Exemplo 01: Brasil API
 
-Veja aqui: https://pokeapi.co
+Veja aqui: https://brasilapi.com.br
 
 
 ```r
-url_base &lt;- "https://pokeapi.co/api/v2"      # nunca muda na mesma API
-endpoint &lt;- "/pokemon/ditto"                 # é o que muda o resultado
-u_pokemon &lt;- paste0(url_base, endpoint)      # cola os textos
-httr::GET(u_pokemon)
+url_base &lt;- "https://brasilapi.com.br/api"
+endpoint &lt;- "/cep/v1/68980000"            
+u_brasilapi &lt;- paste0(url_base, endpoint) 
+httr::GET(u_brasilapi)
 ```
-
-      Response [https://pokeapi.co/api/v2/pokemon/ditto]
-        Date: 2020-11-09 16:55
+    
+      Response [https://brasilapi.com.br/api/cep/v1/68980000]
+        Date: 2022-02-02 20:09
         Status: 200
     *   Content-Type: application/json; charset=utf-8
-        Size: 20.5 kB
+        Size: 98 B
 
 ---
 
