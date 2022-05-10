@@ -131,43 +131,6 @@ rvest::html_nodes(html, ".azul")
 - Note que `//p` indica que estamos fazendo uma busca na tag `p`, enquanto `//*` indica que estamos fazendo uma busca em qualquer tag.
 
 ---
-# Exemplo
-
-Acesse o site de buscas [DuckDuckGo.com](https://duckduckgo.com). Baixe a página de buscas. Dica: use a função `httr::GET()`.
-
---
-
-```{r}
-library(httr)
-GET("https://duckduckgo.com")
-```
-
----
-# Exemplo
-
-Examine o código-fonte da página para encontrar o elemento correspondente à
-caixa de busca e copie o seu XPath pelo navegador. Esse XPath é apropriado? Por
-que?
-
---
-
-```
-//*[@id="search_form_input_homepage"]
-```
-
-Alternativa com CSS Path
-
-```
-#search_form_input_homepage
-```
-
-Uma forma mais simples talvez fosse
-
-```
-//input[@name="q"]
-```
-
----
 
 # Vamos ao R!
 

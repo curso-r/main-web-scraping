@@ -4,7 +4,7 @@
     <title>Web Scraping</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
@@ -13,9 +13,15 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Web Scraping
+]
+.subtitle[
 ## XPath e CSS
+]
+.author[
 ### <img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '20%'>
+]
 
 ---
 
@@ -85,7 +91,7 @@ xml_siblings(heads)
 
 ```
 ## {xml_nodeset (1)}
-## [1] &lt;body&gt;\n    &lt;h1&gt;Título Grande&lt;/h1&gt;\n    \n    &lt;h2&gt;Título um pouco menor&lt;/ ...
+## [1] &lt;body&gt;\r\n    &lt;h1&gt;Título Grande&lt;/h1&gt;\r\n    \r\n    &lt;h2&gt;Título um pouco m ...
 ```
 
 ```r
@@ -196,63 +202,6 @@ rvest::html_nodes(html, ".azul")
 - Note que `//p` indica que estamos fazendo uma busca na tag `p`, enquanto `//*` indica que estamos fazendo uma busca em qualquer tag.
 
 ---
-# Exemplo
-
-Acesse o site de buscas [DuckDuckGo.com](https://duckduckgo.com). Baixe a página de buscas. Dica: use a função `httr::GET()`.
-
---
-
-
-```r
-library(httr)
-GET("https://duckduckgo.com")
-```
-
-```
-## Response [https://duckduckgo.com/]
-##   Date: 2022-02-02 20:27
-##   Status: 200
-##   Content-Type: text/html; charset=UTF-8
-##   Size: 5.72 kB
-## &lt;!DOCTYPE html&gt;
-## &lt;!--[if IEMobile 7 ]&gt; &lt;html lang="en-US" class="no-js iem7"&gt; &lt;![endif]--&gt;
-## &lt;!--[if lt IE 7]&gt; &lt;html class="ie6 lt-ie10 lt-ie9 lt-ie8 lt-ie7 no-js" lang="...
-## &lt;!--[if IE 7]&gt;    &lt;html class="ie7 lt-ie10 lt-ie9 lt-ie8 no-js" lang="en-US"&gt;...
-## &lt;!--[if IE 8]&gt;    &lt;html class="ie8 lt-ie10 lt-ie9 no-js" lang="en-US"&gt; &lt;![end...
-## &lt;!--[if IE 9]&gt;    &lt;html class="ie9 lt-ie10 no-js" lang="en-US"&gt; &lt;![endif]--&gt;
-## &lt;!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]&gt;&lt;!--&gt;&lt;html class="no-js...
-## 
-## &lt;head&gt;
-## 	&lt;meta http-equiv="X-UA-Compatible" content="IE=Edge" /&gt;
-## ...
-```
-
----
-# Exemplo
-
-Examine o código-fonte da página para encontrar o elemento correspondente à
-caixa de busca e copie o seu XPath pelo navegador. Esse XPath é apropriado? Por
-que?
-
---
-
-```
-//*[@id="search_form_input_homepage"]
-```
-
-Alternativa com CSS Path
-
-```
-#search_form_input_homepage
-```
-
-Uma forma mais simples talvez fosse
-
-```
-//input[@name="q"]
-```
-
----
 
 # Vamos ao R!
 
@@ -305,6 +254,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
