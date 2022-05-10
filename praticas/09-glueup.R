@@ -1,5 +1,3 @@
-library(magrittr)
-
 # glue up -----------------------------------------------------------------
 
 r <- httr::GET("https://app.glueup.com")
@@ -15,5 +13,6 @@ r <- httr::POST(u, body = list(
 
 r
 
+# remotes::install_github("jtrecenti/scrapr")
 r_home <- httr::GET("https://app.glueup.com")
 scrapr::html_view(r_home)

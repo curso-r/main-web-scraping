@@ -1,4 +1,3 @@
-library(magrittr)
 library(xml2)
 library(purrr)
 library(httr)
@@ -9,8 +8,8 @@ library(progressr)
 # Na página da Wikipédia, encontrar o objeto correspondente à tabela lateral de 
 # informações. Pegar apenas os elementos correspondentes a links.
 
-links <- "https://en.wikipedia.org/wiki/R_language" %>%
-  read_html() %>%
+links <- "https://en.wikipedia.org/wiki/R_language" |>
+  read_html() |>
   xml_find_all("//table[@class='infobox vevent']//a")
 
 head(links)
@@ -18,10 +17,10 @@ head(links)
 # Extrair todos os URLs dos links e completá-los com o resto do caminho da
 # Wikipédia. Continuar usando apenas _pipes_.
 
-urls <- "https://en.wikipedia.org/wiki/R_language" %>%
-  read_html() %>%
-  xml_find_all("//table[@class='infobox vevent']//a") %>%
-  xml_attr("href") %>%
+urls <- "https://en.wikipedia.org/wiki/R_language" |>
+  read_html() |>
+  xml_find_all("//table[@class='infobox vevent']//a") |>
+  xml_attr("href") |>
   paste0("https://en.wikipedia.org", .)
 
 head(urls)

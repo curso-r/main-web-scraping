@@ -1,5 +1,4 @@
 library(webdriver)
-library(magrittr)
 
 pjs <- run_phantomjs()
 ses <- Session$new(port = pjs$port)
@@ -35,10 +34,10 @@ elem$click()
 
 # Parsear o HTML para extrair informações
 html <- ses$getSource()
-readr::write_file(html, "~/Downloads/shiny_webdriver.html")
+readr::write_file(html, "output/shiny_webdriver.html")
 
-"~/Downloads/shiny_webdriver.html" %>%
-  xml2::read_html() %>%
-  xml2::xml_find_first("//table[@id='DataTables_Table_0']") %>%
-  rvest::html_table() %>%
+"output/shiny_webdriver.html" |>
+  xml2::read_html() |>
+  xml2::xml_find_first("//table[@id='DataTables_Table_0']") |>
+  rvest::html_table() |>
   dplyr::rename_with(janitor::make_clean_names, replace = c("º" = ""))

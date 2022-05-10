@@ -23,5 +23,5 @@ head(da_mencoes$text)
 
 da_users <- rtweet::search_users("#rstats", n = 100)
 
-da_users %>% 
+da_users |> 
   dplyr::select(screen_name, text)

@@ -1,13 +1,12 @@
 library(httr)
 library(xml2)
-library(magrittr)
 
 url <- "https://dejt.jt.jus.br/dejt/f/n/diariocon"
 
-viewstate <- url %>%
-  GET(config(ssl_verifypeer = FALSE)) %>%
-  content() %>%
-  xml_find_first('//input[@name="javax.faces.ViewState"]') %>%
+viewstate <- url |>
+  GET(config(ssl_verifypeer = FALSE)) |>
+  content() |>
+  xml_find_first('//input[@name="javax.faces.ViewState"]') |>
   xml_attr("value")
 
 body <- list(
@@ -34,12 +33,12 @@ resp <- POST(
   write_disk("~/Downloads/dejt.html", overwrite = TRUE)
 )
 
-jid <- resp %>%
-  read_html() %>%
-  xml_find_all("//button") %>%
-  xml_attr("onclick") %>%
-  stringr::str_extract("(?<=plcLogicaItens:0:)j_id[0-9]+") %>%
-  magrittr::extract(!is.na(.))
+jid <- resp |>
+  read_html() |>
+  xml_find_all("//button") |>
+  xml_attr("onclick") |>
+  stringr::str_extract("(?<=plcLogicaItens:0:)j_id[0-9]+") |>
+  purrr::discard(~is.na(.x))
 
 # Descubra o corpo da requisição para baixar um dos PDFs do DEJT.
 

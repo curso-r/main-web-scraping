@@ -1,13 +1,11 @@
-library(magrittr)
-
 u0 <- "https://portaldedireitoscoletivos.cnmp.mp.br/consulta.seam"
 
 r0 <- httr::GET(u0)
 
-state <- r0 %>%
-  xml2::read_html() %>%
-  xml2::xml_find_all("//input[contains(@name, 'ViewState')]") %>%
-  xml2::xml_attr("value") %>%
+state <- r0 |>
+  xml2::read_html() |>
+  xml2::xml_find_all("//input[contains(@name, 'ViewState')]") |>
+  xml2::xml_attr("value") |>
   unique()
 
 body <- list(
@@ -27,5 +25,7 @@ body <- list(
   "javax.faces.ViewState" = state
 )
 
-httr::POST(u0, body = body, encode = "form",
-           httr::write_disk("output/direito.html", TRUE))
+httr::POST(
+  u0, body = body, encode = "form",
+  httr::write_disk("output/direito.html", TRUE)
+)

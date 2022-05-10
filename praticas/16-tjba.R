@@ -45,4 +45,3 @@ tjba_cpopg_download <- function(id, path) {
 
 }
 
-id <- "05042786720178050004"
