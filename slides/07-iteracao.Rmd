@@ -113,9 +113,9 @@ urls <- c(
   "https://en.wikipedia.org/wiki/R_language",
   "https://en.wikipedia.org/wiki/Python_(programming_language)"
 )
-urls %>%
-  map(read_html) %>%
-  map(xml_find_first, "//h1") %>%
+urls |>
+  map(read_html) |>
+  map(xml_find_first, "//h1") |>
   map_chr(xml_text)
 ```
 
@@ -267,10 +267,10 @@ Agora vamos criar uma função que retorna o primeiro parágrafo de uma página 
 
 ```{r}
 download_wiki <- function(url) {
-  url %>%
-    paste0("https://en.wikipedia.org", .) %>%
-    read_html() %>%
-    xml_find_first("//p[not(@class='mw-empty-elt')]") %>%
+  url |>
+    paste0("https://en.wikipedia.org", .) |>
+    read_html() |>
+    xml_find_first("//p[not(@class='mw-empty-elt')]") |>
     xml_text()
 }
 ```
@@ -284,10 +284,10 @@ esqueça do `possibly()`"!
 
 ```{r, warning=FALSE, message=FALSE}
 library(furrr)
-prgs <- "https://en.wikipedia.org/wiki/R_language" %>%
-  read_html() %>%
-  xml_find_all("//table[@class='infobox vevent']//a") %>%
-  xml_attr("href") %>%
+prgs <- "https://en.wikipedia.org/wiki/R_language" |>
+  read_html() |>
+  xml_find_all("//table[@class='infobox vevent']//a") |>
+  xml_attr("href") |>
   future_map(possibly(download_wiki, ""))
 prgs[[3]]
 ```

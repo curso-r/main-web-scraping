@@ -101,10 +101,9 @@ ses$takeScreenshot(file = arq)
 ```
 
 ```{r, echo=FALSE, fig.align='center'}
-library(magrittr)
-arq %>%
-  magick::image_read() %>%
-  magick::image_crop("x600") %>%
+arq |>
+  magick::image_read() |>
+  magick::image_crop("x600") |>
   magick::image_resize("450x")
 ```
 
@@ -178,9 +177,9 @@ drv$client$screenshot(file = arq)
 
 ```{r, echo=FALSE, fig.align='center'}
 tr <- drv$server$stop()
-arq %>%
-  magick::image_read() %>%
-  magick::image_crop("x700") %>%
+arq |>
+  magick::image_read() |>
+  magick::image_crop("x700") |>
   magick::image_resize("500x")
 ```
 
@@ -208,9 +207,9 @@ ses$takeScreenshot(file = arq)
 # Mas com o webdriver...
 
 ```{r, echo=FALSE, fig.align='center'}
-arq %>%
-  magick::image_read() %>%
-  magick::image_crop("x700") %>%
+arq |>
+  magick::image_read() |>
+  magick::image_crop("x700") |>
   magick::image_resize("500x")
 ```
 
