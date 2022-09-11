@@ -1,6 +1,6 @@
 library(httr)
+library(httr2)
 library(jsonlite)
-
 
 # cep ---------------------------------------------------------------------
 
@@ -19,6 +19,27 @@ content(r_cep)
 content(r_cep, as = "text")
 content(r_cep, as = "raw")
 content(r_cep, as = "parsed")
+
+# usando httr2
+req <- u_cep |> 
+  request()
+
+## alternativa com req_url_path_append()
+# req <- u_base |> 
+#   request() |> 
+#   req_url_path_append(endpoint_cep) |> 
+#   req_url_path_append(cep)
+
+resp <- req |> 
+  req_perform()
+
+req |> req_dry_run()
+
+r_cep_httr2 |> 
+  httr2::resp_body_json()
+
+r_cep_httr2 |> 
+  httr2::resp_body_string()
 
 # agora vamos pesquisar na tabela FIPE
 
@@ -57,6 +78,25 @@ r_fipe_query <- GET(u_fipe, query = query_fipe)
 
 ## outra forma de usar query
 
+# com httr2
+
+req <- u_base |> 
+  request() |>
+  req_url_path_append(endpoint_fipe_tabelas) |> 
+  req_url_query(tabela_referencia = "270")
+
+## alternativa
+# req <- u_base |>
+#   request() |>
+#   req_url_path_append(endpoint_fipe_tabelas) |>
+#   req_url_query(!!!query_fipe)
+
+resp <- req |> 
+  req_perform()
+
+resp |> 
+  resp_body_json(simplifyDataFrame = TRUE) |> 
+  tibble::as_tibble()
 
 # preco de carro na FIPE --------------------------------------------------
 

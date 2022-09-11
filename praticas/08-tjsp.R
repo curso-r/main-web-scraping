@@ -2,31 +2,75 @@ library(tidyverse)
 library(httr)
 library(rvest)
 
-u_tjsp <- "https://esaj.tjsp.jus.br/cjsg/resultadoCompleta.do"
+# usando httr
 
-b_tjsp <- list(
-  dados.buscaInteiroTeor = "coronavirus", 
-  dados.origensSelecionadas = "T"
+r_tjsp <- httr::POST(
+  "https://esaj.tjsp.jus.br/cjsg/resultadoCompleta.do", 
+  body = list(
+    dados.buscaInteiroTeor = "test", 
+    dados.origensSelecionadas = "T"
+  )
 )
 
-r_tjsp <- POST(u_tjsp, body = b_tjsp)
-
-# muitas vezes precisa disso aqui
-r_tjsp <- POST(u_tjsp, body = b_tjsp, encode = "form")
-
-u_tjsp_pag <- "https://esaj.tjsp.jus.br/cjsg/trocaDePagina.do"
-q_tjsp_pag <- list(tipoDeDecisao = "A", pagina = 1, conversationId = "")
-r_tjsp_pag <- GET(u_tjsp_pag, query = q_tjsp_pag)
+r_tjsp_pag <- httr::GET(
+  "https://esaj.tjsp.jus.br/cjsg/trocaDePagina.do", 
+  query = list(
+    tipoDeDecisao = "A", 
+    pagina = 2, 
+    conversationId = ""
+  )
+)
 
 tab_html <- r_tjsp_pag |> 
   read_html(encoding = "UTF-8") |> 
-  xml_find_all("//tr[@class='fundocinza1']//table")
+  xml2::xml_find_all("//tr[@class='fundocinza1']//table")
 
 tab_html[[1]] |> 
   html_table(fill = TRUE) |> 
   as_tibble() |> 
   mutate(X1 = str_squish(X1))
 
+r_tjsp_pag$status_code
+
+# trying httr2
+
+req <- httr2::request("https://esaj.tjsp.jus.br/cjsg")
+
+# get first page
+req_busca <- req |> 
+  httr2::req_url_path_append("resultadoCompleta.do") |> 
+  httr2::req_body_form(
+    dados.buscaInteiroTeor = "test", 
+    dados.origensSelecionadas = "T"
+  )
+
+resp <- req_busca |> 
+  httr2::req_perform()
 
 
+# GET request for page 2
 
+# retrieve cookies from last request
+cookies <- resp$headers[names(resp$headers) == "Set-Cookie"] |> 
+  purrr::set_names("Cookie")
+
+req_tjsp_pag <- req |> 
+  httr2::req_url_path_append("trocaDePagina.do") |> 
+  httr2::req_url_query(
+    tipoDeDecisao = "A", 
+    pagina = 2, 
+    conversationId = ""
+  ) |> 
+  httr2::req_headers(!!!cookies)
+
+resp_pag <- req_tjsp_pag |> 
+  httr2::req_perform()
+
+tab_html <- resp_pag |> 
+  httr2::resp_body_html(encoding = "UTF-8") |> 
+  xml2::xml_find_all("//tr[@class='fundocinza1']//table")
+
+tab_html[[1]] |> 
+  html_table(fill = TRUE) |> 
+  as_tibble() |> 
+  mutate(X1 = str_squish(X1))

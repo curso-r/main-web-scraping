@@ -27,6 +27,51 @@ content(r_sptrans_login)
 (r_sptrans <- httr::GET(u_sptrans_busca))
 httr::content(r_sptrans)
 
+
+# alternativa httr2 -------------------------------------------------------
+
+library(httr2)
+
+u_sptrans <- "http://api.olhovivo.sptrans.com.br/v2.1"
+req_base <- u_sptrans |> 
+  httr2::request()
+
+req_login <- req_base |> 
+  httr2::req_url_path_append("/Login/Autenticar") |> 
+  httr2::req_url_query(token = Sys.getenv("API_OLHO_VIVO")) |> 
+  httr2::req_body_form(x = NULL)
+
+resp_login <- req_login |> 
+  httr2::req_verbose() |> 
+  httr2::req_perform()
+
+# ok!
+resp_login |> 
+  httr2::resp_body_string()
+
+req_busca <- req_base |> 
+  httr2::req_url_path_append("Posicao") 
+
+resp_busca <- req_busca |> 
+  httr2::req_perform()
+
+# mesmo assim nao deu!
+# isso acontece porque as chamadas sao independentes.
+
+# adicionando cookies na mao
+
+req_busca <- req_base |> 
+  httr2::req_url_path_append("Posicao") |> 
+  httr2::req_headers(
+    Cookie = resp_login$headers[["Set-Cookie"]]
+  )
+
+resp_busca <- req_busca |> 
+  httr2::req_perform()
+
+resp_busca |> 
+  httr2::resp_body_json()
+
 # base de dados de posicoes (live)
 
 # base desaninhada (live)
