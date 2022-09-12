@@ -2,7 +2,6 @@
 title: "Web Scraping"
 subtitle: "Introdução ao curso"
 author: "<img src = 'https://d33wubrfki0l68.cloudfront.net/9b0699f18268059bdd2e5c21538a29eade7cbd2b/67e5c/img/logo/cursor1-5.png' width = '30%'>"
-date: "`r paste(lubridate::month(Sys.Date(), label = TRUE, abbr = FALSE, locale = 'pt_BR.UTF-8'), 'de', lubridate::year(Sys.Date()))`"
 output:
   xaringan::moon_reader:
     css: ["default", "default-fonts", "css/xaringan-themer.css"]
@@ -161,3 +160,15 @@ class: middle, center
 
 - Saber fazer a pergunta certa vai te ajudar bastante nos estudos de programação. [Veja aqui dicas de como fazer uma boa pergunta](https://discourse.curso-r.com/t/como-escrever-uma-boa-pergunta/542).
 
+---
+## httr e httr2
+
+Neste curso, passaremos as 3 primeiras aulas falando dos pacotes 
+
+- `{httr}` (para acessar a web).
+- `{xml2}` e `{rvest}` (para extrair dados de arquivos HTML).
+- `{tidyverse}` (para trabalhar com os dados extraídos).
+
+Recentemente (maio/2022) [Hadley Wickham](https://twitter.com/hadleywickham/status/1520013755962343424) lançou o pacote [`{httr2}`](https://httr2.r-lib.org/). 
+
+Por isso, vamos trabalhar com os dois pacotes, mostrando suas diferenças.
