@@ -33,8 +33,7 @@ knitr::kable(CursoRutils:::listar_turmas_recentes("web-scraping"))
 - **Utilizando APIs**
   - Acessando dados de APIs
   - APIs escondidas em sites
-  - APIs com autenticação simples
-  - Acessar APIs com OAuth2
+  - APIs com autenticação
 
 - **Baixando dados em HTML ou XML**
   - Imitando a requisição do inspetor
