@@ -57,6 +57,7 @@ resp_busca <- req_busca |>
 
 # mesmo assim nao deu!
 # isso acontece porque as chamadas sao independentes.
+# https://github.com/r-lib/httr2/issues/223
 
 # adicionando cookies na mao
 

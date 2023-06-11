@@ -3,9 +3,9 @@ library(httr)
 library(rvest)
 library(xml2)
 
-u_cdg <- "http://www.chancedegol.com.br/br21.htm"
+u_cdg <- "http://www.chancedegol.com.br/br22.htm"
 
-cdg_html <- GET(u_cdg)
+cdg_html <- httr::GET(u_cdg)
 
 cdg_table <- cdg_html  |>
   read_html() |>
