@@ -128,6 +128,13 @@ tecla para o elemento
 
 ---
 
+# Exemplos
+
+## Exemplo 13: ShinyApp (PesqEle)
+
+---
+
+
 # Vamos ao R!
 
 ```{r, echo=FALSE, fig.align="center"}
@@ -164,9 +171,9 @@ executa todos os comandos ao vivo nela
 
 ```{r message=FALSE, warning=FALSE, results='hide'}
 library(RSelenium)
-drv <- rsDriver(browser = "firefox", verbose = FALSE)
+drv <- rsDriver(browser = "firefox", verbose = FALSE, chromever = NULL)
 drv$client$navigate("https://google.com")
-elem <- drv$client$findElement("xpath", "//input[@name='q']")
+elem <- drv$client$findElement("xpath", "//textarea[@name='q']")
 elem$sendKeysToElement(list("ibovespa", key = "enter"))
 Sys.sleep(2)
 drv$client$screenshot(file = arq)
@@ -212,6 +219,12 @@ arq |>
   magick::image_crop("x700") |>
   magick::image_resize("500x")
 ```
+
+---
+
+# Exemplos
+
+## Exemplo 14: PowerBI (Datajud)
 
 ---
 

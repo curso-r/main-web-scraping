@@ -150,7 +150,7 @@ class: center, middle
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -169,7 +169,7 @@ httr::GET(u_brasilapi)
       
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -188,7 +188,7 @@ httr::GET(u_brasilapi)
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -223,7 +223,7 @@ httr::GET(u_brasilapi)
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -245,5 +245,98 @@ httr::GET(u_brasilapi)
 # Vamos ao R!
 
 ```{r}
+knitr::include_graphics("img/cat.gif")
+```
+
+---
+class: middle, center, inverse
+
+# Usando o navegador
+
+---
+
+# Exemplo 02: Sabesp
+
+- Nem sempre a API estará documentada.
+
+- Neste caso, descobrimos sua existência "na raça".
+
+- Técnicas mais importantes do profissional de raspagem:
+
+### Inspecionar elemento
+
+### Aba Network
+
+---
+
+# Vá ao seu navegador!
+
+.pull-left[
+
+Acesse: http://mananciais.sabesp.com.br/
+
+]
+
+.pull-right[
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/browser.png")
+```
+
+]
+
+---
+
+# Inspect element
+
+```{r, echo=FALSE}
+knitr::include_graphics("img/inspect.png")
+```
+
+---
+class: middle, center, inverse
+
+# Autenticação
+
+---
+
+# GET e POST
+
+- **GET** utiliza parâmetros na URL
+    - Utilizar parâmetro `query=`
+
+- **POST** utiliza parâmetros no corpo da requisição
+    - Utilizar o parâmetro `body=`
+    - Pode utilizar parâmetros na URL, mas não é comum
+    
+- A principal diferença entre os dois tipos é a **segurança**
+
+---
+
+# Autenticação
+
+- A autenticação é usada tanto em APIs quanto sites.
+
+- Geralmente acontece através de um parâmetro em uma requisição **POST**.
+
+- A requisição pode aparecer no *body* ou nos *headers*.
+
+- Se a API for documentada, as informações de autenticação estarão lá.
+
+---
+
+# Exemplos:
+
+## Exemplo 03: SPtrans (vídeo gravado)
+
+## Exemplo 04: ChatGPT
+
+## Exemplo 05: Página de Login
+
+---
+
+# Vamos ao R!
+
+```{r, echo=FALSE, fig.align="center"}
 knitr::include_graphics("img/cat.gif")
 ```

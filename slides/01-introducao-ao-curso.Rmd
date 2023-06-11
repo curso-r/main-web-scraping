@@ -169,6 +169,6 @@ Neste curso, passaremos as 3 primeiras aulas falando dos pacotes
 - `{xml2}` e `{rvest}` (para extrair dados de arquivos HTML).
 - `{tidyverse}` (para trabalhar com os dados extraídos).
 
-Recentemente (maio/2022) [Hadley Wickham](https://twitter.com/hadleywickham/status/1520013755962343424) lançou o pacote [`{httr2}`](https://httr2.r-lib.org/). 
+Em maio/2022 [Hadley Wickham](https://twitter.com/hadleywickham/status/1520013755962343424) lançou o pacote [`{httr2}`](https://httr2.r-lib.org/). 
 
 Por isso, vamos trabalhar com os dois pacotes, mostrando suas diferenças.

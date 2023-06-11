@@ -4,7 +4,7 @@
     <title>Web Scraping</title>
     <meta charset="utf-8" />
     <meta name="author" content="" />
-    <script src="libs/header-attrs-2.14/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.22/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/xaringan-themer.css" type="text/css" />
@@ -151,7 +151,7 @@ class: center, middle
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -171,7 +171,7 @@ httr::GET(u_brasilapi)
       
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -191,7 +191,7 @@ httr::GET(u_brasilapi)
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -227,7 +227,7 @@ httr::GET(u_brasilapi)
 
 ---
 
-# Exemplo 01: Brasil API
+# Exemplo: Brasil API
 
 Veja aqui: https://brasilapi.com.br
 
@@ -244,6 +244,93 @@ httr::GET(u_brasilapi)
         Status: 200
     *   Content-Type: application/json; charset=utf-8
         Size: 98 B
+
+---
+
+# Vamos ao R!
+
+&lt;img src="img/cat.gif" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle, center, inverse
+
+# Usando o navegador
+
+---
+
+# Exemplo 02: Sabesp
+
+- Nem sempre a API estará documentada.
+
+- Neste caso, descobrimos sua existência "na raça".
+
+- Técnicas mais importantes do profissional de raspagem:
+
+### Inspecionar elemento
+
+### Aba Network
+
+---
+
+# Vá ao seu navegador!
+
+.pull-left[
+
+Acesse: http://mananciais.sabesp.com.br/
+
+]
+
+.pull-right[
+
+&lt;img src="img/browser.png" width="569" style="display: block; margin: auto;" /&gt;
+
+]
+
+---
+
+# Inspect element
+
+&lt;img src="img/inspect.png" width="1287" style="display: block; margin: auto;" /&gt;
+
+---
+class: middle, center, inverse
+
+# Autenticação
+
+---
+
+# GET e POST
+
+- **GET** utiliza parâmetros na URL
+    - Utilizar parâmetro `query=`
+
+- **POST** utiliza parâmetros no corpo da requisição
+    - Utilizar o parâmetro `body=`
+    - Pode utilizar parâmetros na URL, mas não é comum
+    
+- A principal diferença entre os dois tipos é a **segurança**
+
+---
+
+# Autenticação
+
+- A autenticação é usada tanto em APIs quanto sites.
+
+- Geralmente acontece através de um parâmetro em uma requisição **POST**.
+
+- A requisição pode aparecer no *body* ou nos *headers*.
+
+- Se a API for documentada, as informações de autenticação estarão lá.
+
+---
+
+# Exemplos:
+
+## Exemplo 03: SPtrans (vídeo gravado)
+
+## Exemplo 04: ChatGPT
+
+## Exemplo 05: Página de Login
 
 ---
 
