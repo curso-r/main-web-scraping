@@ -21,24 +21,24 @@ content(r_cep, as = "raw")
 content(r_cep, as = "parsed")
 
 # usando httr2
-req <- u_cep |> 
+req <- u_cep |>
   request()
 
 ## alternativa com req_url_path_append()
-# req <- u_base |> 
-#   request() |> 
-#   req_url_path_append(endpoint_cep) |> 
+# req <- u_base |>
+#   request() |>
+#   req_url_path_append(endpoint_cep) |>
 #   req_url_path_append(cep)
 
-resp <- req |> 
+resp <- req |>
   req_perform()
 
 req |> req_dry_run()
 
-r_cep_httr2 |> 
+r_cep_httr2 |>
   httr2::resp_body_json()
 
-r_cep_httr2 |> 
+r_cep_httr2 |>
   httr2::resp_body_string()
 
 # agora vamos pesquisar na tabela FIPE
@@ -64,8 +64,8 @@ endpoint_fipe_tabelas <- "/fipe/tabelas/v1"
 u_fipe_tabelas <- paste0(u_base, endpoint_fipe_tabelas)
 r_fipe_tabelas <- GET(u_fipe_tabelas)
 
-tabelas <- r_fipe_tabelas |> 
-  httr::content(simplifyDataFrame = TRUE) |> 
+tabelas <- r_fipe_tabelas |>
+  httr::content(simplifyDataFrame = TRUE) |>
   tibble::as_tibble()
 
 ## chamando com um parâmetro
@@ -80,9 +80,9 @@ r_fipe_query <- GET(u_fipe, query = query_fipe)
 
 # com httr2
 
-req <- u_base |> 
+req <- u_base |>
   request() |>
-  req_url_path_append(endpoint_fipe_tabelas) |> 
+  req_url_path_append(endpoint_fipe_tabelas) |>
   req_url_query(tabela_referencia = "270")
 
 ## alternativa
@@ -91,11 +91,13 @@ req <- u_base |>
 #   req_url_path_append(endpoint_fipe_tabelas) |>
 #   req_url_query(!!!query_fipe)
 
-resp <- req |> 
+
+
+resp <- req |>
   req_perform()
 
-resp |> 
-  resp_body_json(simplifyDataFrame = TRUE) |> 
+resp |>
+  resp_body_json(simplifyDataFrame = TRUE) |>
   tibble::as_tibble()
 
 # preco de carro na FIPE --------------------------------------------------
